@@ -24,6 +24,11 @@ iOSアプリを開発している「pochimutech」の公式サイトです。
 - [概要・サポートページ](https://shadow-zenith-da4.notion.site/AI-24f4767babff8081b7e4f53c22ee04b5)
 - [利用規約&プライバシーポリシー](https://shadow-zenith-da4.notion.site/AI-24f4767babff80b285b0d5d048bd3096)
 
+### 俳句AI採点 – 才能アリ？才能ナシ？
+- 9月上旬リリース予定
+- [概要・サポートページ](https://pochimutech.notion.site/AI-25d4767babff80d2aa4fd4b1609ac1e3)
+- [利用規約&プライバシーポリシー](https://pochimutech.notion.site/AI-25d4767babff80a580bde7c0d31437b9)
+
 ## お問い合わせ
 
 ご連絡は以下のメールアドレスまでお願いいたします。
