@@ -29,6 +29,11 @@ iOSアプリを開発している「pochimutech」の公式サイトです。
 - [概要・サポートページ](https://pochimutech.notion.site/AI-25d4767babff80d2aa4fd4b1609ac1e3)
 - [利用規約&プライバシーポリシー](https://pochimutech.notion.site/AI-25d4767babff80a580bde7c0d31437b9)
 
+### かんたん外貨家計簿 — 世界中の通貨に対応した家計簿アプリ
+- [App Storeでダウンロード](https://apps.apple.com/jp/app/%E3%81%8B%E3%82%93%E3%81%9F%E3%82%93%E5%A4%96%E8%B2%A8%E5%AE%B6%E8%A8%88%E7%B0%BF-%E4%B8%96%E7%95%8C%E4%B8%AD%E3%81%AE%E9%80%9A%E8%B2%A8%E3%81%AB%E5%AF%BE%E5%BF%9C%E3%81%97%E3%81%9F%E5%AE%B6%E8%A8%88%E7%B0%BF%E3%82%A2%E3%83%97%E3%83%AA/id6752359925)
+- [概要・サポートページ](https://pochimutech.notion.site/2684767babff801ca245e7fa1988505c)
+- [利用規約&プライバシーポリシー](https://pochimutech.notion.site/2684767babff8084bc2efaad0d4513e4)
+
 ## お問い合わせ
 
 ご連絡は以下のメールアドレスまでお願いいたします。
