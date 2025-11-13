@@ -28,6 +28,17 @@ body {
     color: #007bff;
 }
 
+.site-logo {
+    width: 100%;
+    max-width: 400px;
+    /* ロゴの最大幅（例：300px） */
+    height: auto;
+    /* 高さは自動調整 */
+    margin-top: 0;
+    /* 必要に応じて、上下のマージン（余白）を追加 */
+    /* margin-bottom: 10px; */
+}
+
 .site-footer {
     border-top: 1px solid #e9ecef;
     margin-top: 40px;
@@ -84,6 +95,64 @@ section h2 {
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;/* 子要素を水平方向に中央揃え */
+    position: relative;/* リボンの配置基準にする */
+    overflow: hidden;/* カードからはみ出すリボンを隠す */
+}
+
+.app-card.latest-work::before {
+    content: "NEW";
+    position: absolute;
+
+    /* --- ↓↓↓ 変更点 ↓↓↓ --- */
+
+    /* 1. パディングをやめ、width と height を固定値にする */
+    /* (リボンの寸法を固定する) */
+    padding: 0;
+    width: 120px;
+    /* お好みのリボンの「幅」に固定 */
+    height: 100px;
+    /* お好みのリボンの「高さ」に固定 */
+
+/* 2. Flexboxを使って文字を配置 */
+    display: flex;
+    justify-content: center;
+    /* 水平方向：中央揃え */
+    align-items: flex-end;
+    /* 垂直方向：下揃え */
+
+    /* 3. line-height はリセット */
+    line-height: normal;
+    /* text-align: center; (Flexboxが優先されるため不要) */
+
+    /* 2. 'height'に合わせて 'line-height' で文字を上下中央揃え */
+    line-height: 25px;
+    /* 3. 'width' に合わせて 'text-align' で文字を左右中央揃え */
+    text-align: center;
+
+    /* 4. (width/2) と (height/2) を使って中心点を角に合わせる */
+    /* (リボンの中心をカードの右上に正確に移動) */
+    top: -50px;
+    /* ( height: 25px の半分 ) */
+    right: -60px;
+    /* ( width: 120px の半分 ) */
+
+    /* --- ↑↑↑ 変更点ここまで ↑↑↑ --- */
+
+    transform: rotate(45deg);
+    /* 45度回転 */
+    background-color: #ff0000;
+    /* サイトのテーマカラー */
+    color: white;
+    /* padding: 4px 50px; (削除) */
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    /* 他
+    の要素より手前に表示 */
 }
 
 .app-card:hover {
@@ -110,6 +179,10 @@ section h2 {
     list-style: none;
     padding: 0;
     margin: 0;
+    /* 上部のマージンを自動（auto）に設定することで、
+       残りの全てのスペースをマージンとして使い、
+       この要素自体をコンテナ（.app-card）の最下部に押し下げます。 */
+    margin-top: auto;
 }
 
 .app-links li {
@@ -125,19 +198,18 @@ section h2 {
     text-decoration: underline;
 }
 
-/* App Storeへのリンクを目立たせる */
-a.app-store-link {
+/* App Storeバッジのリンク <a> タグのスタイル */
+.app-links li:first-child a {
     display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.2s;
+    /* HTMLのインラインスタイルから移動 */
 }
 
-a.app-store-link:hover {
-    background-color: #0056b3;
-    color: #fff;
-    text-decoration: none;
+/* App Storeバッジ <img> タグのスタイル */
+.app-links li:first-child img {
+    width: 180px;
+    /* ← ここでお好みのサイズに変更 (例: 150px) */
+    height: auto;
+    /* 縦横比を維持 (固定の高さ指定を削除) */
+    vertical-align: middle;
+    object-fit: contain;
 }
