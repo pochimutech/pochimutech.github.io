@@ -1,107 +1,335 @@
-/* 基本的なスタイルリセットと設定 */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.6;
+/* Modern Tech Theme Variables */
+:root {
+    --bg-color: #0f172a;
+    /* Deep Blue/Black */
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #38bdf8;
+    /* Sky Blue */
+    --accent-glow: rgba(56, 189, 248, 0.5);
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(12px);
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
-    color: #333;
-    background-color: #f8f9fa;
+    padding: 0;
 }
 
-/* ページ全体のコンテナ */
+body {
+    font-family: var(--font-main);
+    background: var(--bg-color);
+    background-image: var(--bg-gradient);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: #7dd3fc;
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Layout Utilities */
 .container {
-    max-width: 960px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
 }
 
-/* ヘッダーとフッター */
-.site-header, .site-footer {
-    background-color: #ffffff;
+/* Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: 20px 0;
-    text-align: center;
-    border-bottom: 1px solid #e9ecef;
+    z-index: 1000;
+    transition: all var(--transition-speed);
+    backdrop-filter: blur(0px);
+    /* Initial state */
 }
 
-.site-header h1 {
-    margin-top: 0;
-    font-size: 2.5em;
-    color: #007bff;
+.site-header.scrolled {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: var(--glass-blur);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--card-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .site-logo {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    /* Make logo white if it's black */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.site-header.scrolled .site-logo {
+    opacity: 1;
+}
+
+.header-tagline {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: none;
+    /* Hide on mobile, show on desktop */
+}
+
+@media (min-width: 768px) {
+    .header-tagline {
+        display: block;
+    }
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.lang-switch select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
+    color: var(--text-primary);
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.lang-switch select:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-color);
+}
+
+.lang-switch select option {
+    background: #1e293b;
+    color: var(--text-primary);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 40vh;
+    /* Reduced from 60vh */
+    padding: 40px 0 20px;
+    /* Reduced padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ... (omitted middle parts if any, but here I am replacing the block) ... */
+/* Actually I should be careful with replace_file_content for non-contiguous blocks.
+   The .hero block is lines 105-116.
+   The section block is lines 202-204.
+   I should use multi_replace_file_content.
+*/
+
+/* Abstract Background Shapes */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    opacity: 0.2;
+    filter: blur(80px);
+    z-index: -1;
+    animation: float 10s infinite ease-in-out;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+    /* Purple accent */
+    opacity: 0.2;
+    filter: blur(80px);
+    z-index: -1;
+    animation: float 12s infinite ease-in-out reverse;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(30px, -30px);
+    }
+}
+
+.hero-content h1 {
+    margin-bottom: 1rem;
+}
+
+.hero-logo {
     width: 100%;
     max-width: 400px;
     /* ロゴの最大幅（例：300px） */
     height: auto;
     /* 高さは自動調整 */
     margin-top: 0;
-    /* 必要に応じて、上下のマージン（余白）を追加 */
-    /* margin-bottom: 10px; */
+    filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+    /* Make white for dark mode with subtle glow */
 }
 
-.site-footer {
-    border-top: 1px solid #e9ecef;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #6c757d;
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
 }
 
-.site-footer a {
-    color: #007bff;
-}
-
-/* メインコンテンツ */
-main {
-    padding: 20px 0;
-}
-
-section {
-    margin-bottom: 40px;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
+.btn-primary {
     display: inline-block;
+    padding: 12px 32px;
+    background: var(--accent-color);
+    color: #0f172a;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--accent-glow);
 }
 
-/* セクションタイトルを中央揃えにするためのラッパー */
-section h2 {
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px var(--accent-glow);
+    background: #7dd3fc;
+    color: #0f172a;
+    text-shadow: none;
+}
+
+/* Section Styles */
+section {
+    padding: 40px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 auto 60px;
+    /* Center block */
+    position: relative;
+    display: table;
+    /* Allows centering with margin auto while keeping width fit-content */
+}
+
+.section-title::after {
+    content: '';
     display: block;
-    text-align: center;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
-}
-#contact {
-    text-align: center;
+    width: 60px;
+    height: 4px;
+    background: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--accent-glow);
 }
 
-/* アプリ紹介のグリッドレイアウト */
+/* App Grid */
 .app-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    /* Center grid items if they don't fill row */
 }
 
-/* アプリカードのスタイル */
+/* App Card */
 .app-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 30px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: var(--glass-blur);
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+    /* Fast transform for tilt */
     display: flex;
     flex-direction: column;
-    align-items: center;/* 子要素を水平方向に中央揃え */
-    position: relative;/* リボンの配置基準にする */
-    overflow: hidden;/* カードからはみ出すリボンを隠す */
+    align-items: center;
 }
 
+.app-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+.app-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    display: block;
+    /* Ensure it's block for margin auto if needed */
+}
+
+.app-card:hover .app-icon {
+    transform: scale(1.05);
+}
+
+.app-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    width: 100%;
+    /* Ensure text centering works */
+}
+
+.app-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    min-height: 1.5em;
+    width: 100%;
+}
+
+/* Ribbon */
 .app-card.latest-work::before {
     content: "NEW";
     position: absolute;
@@ -111,12 +339,12 @@ section h2 {
     /* 1. パディングをやめ、width と height を固定値にする */
     /* (リボンの寸法を固定する) */
     padding: 0;
-    width: 120px;
+    width: 200px;
     /* お好みのリボンの「幅」に固定 */
-    height: 100px;
+    height: 150px;
     /* お好みのリボンの「高さ」に固定 */
 
-/* 2. Flexboxを使って文字を配置 */
+    /* 2. Flexboxを使って文字を配置 */
     display: flex;
     justify-content: center;
     /* 水平方向：中央揃え */
@@ -134,10 +362,10 @@ section h2 {
 
     /* 4. (width/2) と (height/2) を使って中心点を角に合わせる */
     /* (リボンの中心をカードの右上に正確に移動) */
-    top: -50px;
-    /* ( height: 25px の半分 ) */
-    right: -60px;
-    /* ( width: 120px の半分 ) */
+    top: -75px;
+    /* ( heightの半分 ) */
+    right: -100px;
+    /* ( widthの半分 ) */
 
     /* --- ↑↑↑ 変更点ここまで ↑↑↑ --- */
 
@@ -147,7 +375,7 @@ section h2 {
     /* サイトのテーマカラー */
     color: white;
     /* padding: 4px 50px; (削除) */
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 10;
@@ -155,61 +383,71 @@ section h2 {
     の要素より手前に表示 */
 }
 
-.app-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.app-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: 22%; /* iOS風の角丸 */
-    margin-bottom: 15px;
-    background-color: #f0f0f0; /* 画像読み込み中に表示される背景色 */
-}
-
-.app-card h3 {
-    margin-top: 0;
-    font-size: 1.25em;
-    min-height: 2.5em; /* タイトルの高さを揃える */
-}
-
-/* アプリへのリンク一覧 */
+/* App Links */
 .app-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    /* 上部のマージンを自動（auto）に設定することで、
-       残りの全てのスペースをマージンとして使い、
-       この要素自体をコンテナ（.app-card）の最下部に押し下げます。 */
     margin-top: auto;
+    width: 100%;
 }
 
 .app-links li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .app-links a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-.app-links a:hover {
-    text-decoration: underline;
-}
-
-/* App Storeバッジのリンク <a> タグのスタイル */
-.app-links li:first-child a {
+    font-size: 0.9rem;
     display: inline-block;
-    /* HTMLのインラインスタイルから移動 */
 }
 
-/* App Storeバッジ <img> タグのスタイル */
-.app-links li:first-child img {
+.app-store-badge img {
     width: 180px;
-    /* ← ここでお好みのサイズに変更 (例: 150px) */
     height: auto;
-    /* 縦横比を維持 (固定の高さ指定を削除) */
-    vertical-align: middle;
-    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.app-store-badge:hover img {
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid var(--card-border);
+}
+
+.contact-email {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid var(--card-border);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .app-grid {
+        grid-template-columns: 1fr;
+    }
 }
