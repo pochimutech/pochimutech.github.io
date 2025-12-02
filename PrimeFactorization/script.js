@@ -30,18 +30,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Translations ---
     const translations = {
         ja: {
-            "contact.title": "お問い合わせ",
-            "contact.text": "ご連絡は以下のメールアドレスまでお願いいたします。",
+            "contact.title": "お問い合わせ・ご要望",
+            "contact.form_desc": "ご意見・ご要望・不具合報告は、以下のフォームより受け付けております。",
+            "contact.btn_form": "お問い合わせフォームへ",
+            "contact.email_desc": "メールでのお問い合わせはこちら",
+
             "pf.title": "Prime Rush: 素因数分解の数学脳トレ",
             "pf.status": "12月上旬リリース予定",
+            "pf.dev": "デベロッパー：POCHIMU TECH",
+            "pf.cat": "カテゴリ：教育 / エンターテイメント",
             "pf.btn.terms": "利用規約 & プライバシーポリシー",
-            "pf.btn.back": "公式サイトへ戻る",
+            "pf.btn.other_works": "POCHIMU TECHの他の作品はこちら",
+
             "pf.overview.title": "アプリ概要",
+            "pf.intro": "ご利用いただきありがとうございます！<br>このページでは、アプリ「素因数分解タイムアタック」に関するお問い合わせや、不具合報告を受け付けています。",
+
             "pf.purpose.title": "利用目的",
             "pf.purpose.text": "本アプリは、素因数分解タイムアタックゲームを楽しむことを目的として提供されています。",
             "pf.features.title": "機能の概要",
             "pf.features.1": "素因数分解のタイムアタックゲーム",
             "pf.features.2": "スコアの記録およびランキング機能（Firebase使用）",
+
+            "pf.disclaimer.title": "🛡️ 免責事項",
+            "pf.disclaimer.text": "本アプリの情報は正確を期していますが、内容の保証は致しかねます。<br>不具合などが発生した場合、できる限り迅速に対応いたしますが、保証はできません。",
 
             // Terms & Privacy
             "terms.title": "📜 利用規約",
@@ -97,18 +108,29 @@ document.addEventListener('DOMContentLoaded', () => {
             "privacy.sec7.text": "必要に応じて本ポリシーを改訂することがあります。改訂後はアプリ内または関連ページにて告知します。"
         },
         en: {
-            "contact.title": "Contact",
-            "contact.text": "Please contact us at the email address below.",
+            "contact.title": "Contact / Feedback",
+            "contact.form_desc": "We accept feedback, requests, and bug reports via the form below.",
+            "contact.btn_form": "Go to Contact Form",
+            "contact.email_desc": "For inquiries via email:",
+
             "pf.title": "Prime Rush: Math Time Attack",
             "pf.status": "Scheduled for Release Early Dec",
+            "pf.dev": "Developer: POCHIMU TECH",
+            "pf.cat": "Category: Education / Entertainment",
             "pf.btn.terms": "Terms & Privacy Policy",
-            "pf.btn.back": "Back to Official Site",
+            "pf.btn.other_works": "Check out other apps by POCHIMU TECH",
+
             "pf.overview.title": "App Overview",
+            "pf.intro": "Thank you for using our app!<br>This page accepts inquiries and bug reports regarding \"Prime Rush\".",
+
             "pf.purpose.title": "Purpose",
             "pf.purpose.text": "This app is provided for the purpose of enjoying a prime factorization time attack game.",
             "pf.features.title": "Features",
             "pf.features.1": "Prime factorization time attack game",
             "pf.features.2": "Score recording and ranking function (using Firebase)",
+
+            "pf.disclaimer.title": "🛡️ Disclaimer",
+            "pf.disclaimer.text": "We strive for accuracy, but cannot guarantee the content.<br>We will respond to bugs as quickly as possible, but cannot guarantee a fix.",
 
             // Terms & Privacy (English)
             "terms.title": "📜 Terms of Service",
@@ -164,18 +186,29 @@ document.addEventListener('DOMContentLoaded', () => {
             "privacy.sec7.text": "We may revise this policy as necessary. Revisions will be announced within the App or on related pages."
         },
         zh: {
-            "contact.title": "联系我们",
-            "contact.text": "请通过以下电子邮件地址联系我们。",
+            "contact.title": "联系我们 / 反馈",
+            "contact.form_desc": "关于应用的意见、需求及故障报告，请通过以下表单提交。",
+            "contact.btn_form": "前往咨询表单",
+            "contact.email_desc": "通过电子邮件联系：",
+
             "pf.title": "Prime Rush: 质因数分解数学脑力挑战",
             "pf.status": "预计12月上旬发布",
+            "pf.dev": "开发者：POCHIMU TECH",
+            "pf.cat": "类别：教育 / 娱乐",
             "pf.btn.terms": "使用条款 & 隐私政策",
-            "pf.btn.back": "返回官方网站",
+            "pf.btn.other_works": "查看 POCHIMU TECH 的其他作品",
+
             "pf.overview.title": "应用概要",
+            "pf.intro": "感谢您的使用！<br>本页面接受关于“Prime Rush”的咨询及故障报告。",
+
             "pf.purpose.title": "使用目的",
             "pf.purpose.text": "本应用旨在提供享受质因数分解计时挑战游戏的乐趣。",
             "pf.features.title": "功能概要",
             "pf.features.1": "质因数分解的计时挑战游戏",
             "pf.features.2": "分数记录及排名功能（使用Firebase）",
+
+            "pf.disclaimer.title": "🛡️ 免责声明",
+            "pf.disclaimer.text": "我们力求信息准确，但不保证内容的准确性。<br>如果发生故障，我们将尽可能迅速应对，但无法做出保证。",
 
             // Terms & Privacy (Chinese)
             "terms.title": "📜 使用条款",

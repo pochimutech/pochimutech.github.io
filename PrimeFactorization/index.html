@@ -42,11 +42,16 @@
                     12月上旬リリース予定
                 </p>
 
-                <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 0.9rem;">
+                    <span data-i18n="pf.dev">デベロッパー：POCHIMU TECH</span> | <span
+                        data-i18n="pf.cat">カテゴリ：教育/エンターテイメント</span>
+                </p>
+
+                <div style="margin-top: 30px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                     <a href="terms.html" class="btn-primary" data-i18n="pf.btn.terms">利用規約 & プライバシーポリシー</a>
                     <a href="../index.html" class="btn-primary"
                         style="background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color);"
-                        data-i18n="pf.btn.back">公式サイトへ戻る</a>
+                        data-i18n="pf.btn.other_works">✨POCHIMU TECHの他の作品はこちら✨</a>
                 </div>
             </div>
         </section>
@@ -54,31 +59,65 @@
         <section class="container fade-in-up">
             <h2 class="section-title" data-i18n="pf.overview.title">アプリ概要</h2>
             <div class="app-card" style="max-width: 800px; margin: 0 auto; text-align: left; align-items: flex-start;">
-                <h3 class="app-title" data-i18n="pf.purpose.title">利用目的</h3>
-                <p style="margin-bottom: 20px;" data-i18n="pf.purpose.text">本アプリは、素因数分解タイムアタックゲームを楽しむことを目的として提供されています。
+
+                <div
+                    style="margin-bottom: 30px; border-bottom: 1px solid var(--card-border); padding-bottom: 20px; width: 100%;">
+                    <p data-i18n="pf.intro" style="line-height: 1.8;">
+                        ご利用いただきありがとうございます！<br>
+                        このページでは、アプリ「素因数分解タイムアタック」に関するお問い合わせや、不具合報告を受け付けています。
+                    </p>
+                </div>
+
+                <h3 class="app-title" data-i18n="pf.purpose.title" style="font-size: 1.2rem; margin-top: 10px;">利用目的
+                </h3>
+                <p style="margin-bottom: 20px; color: var(--text-secondary);" data-i18n="pf.purpose.text">
+                    本アプリは、素因数分解タイムアタックゲームを楽しむことを目的として提供されています。
                 </p>
 
-                <h3 class="app-title" data-i18n="pf.features.title">機能の概要</h3>
-                <ul style="list-style: disc; padding-left: 20px; color: var(--text-secondary);">
+                <h3 class="app-title" data-i18n="pf.features.title" style="font-size: 1.2rem;">機能の概要</h3>
+                <ul style="list-style: disc; padding-left: 20px; color: var(--text-secondary); margin-bottom: 30px;">
                     <li data-i18n="pf.features.1">素因数分解のタイムアタックゲーム</li>
                     <li data-i18n="pf.features.2">スコアの記録およびランキング機能（Firebase使用）</li>
                 </ul>
+
+                <h3 class="app-title" data-i18n="pf.disclaimer.title" style="font-size: 1.2rem;">🛡️ 免責事項</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;"
+                    data-i18n="pf.disclaimer.text">
+                    本アプリの情報は正確を期していますが、内容の保証は致しかねます。<br>
+                    不具合などが発生した場合、できる限り迅速に対応いたしますが、保証はできません。
+                </p>
             </div>
         </section>
 
         <section id="contact" class="fade-in-up">
             <div class="container">
                 <h2 class="section-title" data-i18n="contact.title">お問い合わせ</h2>
-                <p data-i18n="contact.text">ご連絡は以下のメールアドレスまでお願いいたします。</p>
-                <p><a href="mailto:pochimutech.contact@gmail.com"
-                        class="contact-email">pochimutech.contact@gmail.com</a></p>
+
+                <p data-i18n="contact.form_desc" style="margin-bottom: 20px;">
+                    ご意見・ご要望・不具合報告は、以下のフォームより受け付けております。
+                </p>
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe06spcDK3hDMkQhWRqNLQtU7v8v-95niLPl7oJebItRRuaNQ/viewform?usp=dialog" target="_blank" class="btn-primary" style="margin-bottom: 40px;"
+                    data-i18n="contact.btn_form">
+                    お問い合わせフォームへ
+                </a>
+
+                <div
+                    style="margin-top: 30px; border-top: 1px solid var(--card-border); padding-top: 20px; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <p data-i18n="contact.email_desc"
+                        style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 10px;">
+                        メールでのお問い合わせはこちら
+                    </p>
+                    <p><a href="mailto:pochimutech.contact@gmail.com"
+                            class="contact-email">pochimutech.contact@gmail.com</a></p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 pochimutech. All Rights Reserved.</p>
+            <p>&copy; 2025 POCHIMU TECH. All rights reserved.</p>
         </div>
     </footer>
 
