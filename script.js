@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "hero.subtitle": "iOSアプリ開発を通して、<br>日常を少し便利に、少し楽しく。",
             "hero.button": "View Apps",
             "apps.title": "制作したアプリ",
+            "app.ai_greats.title": "AI偉人とチャット",
+            "app.ai_greats.subtitle": "50人の偉人と会話・恋愛・勉強学習トーク",
             "app.blue_library.title": "青の書架",
             "app.blue_library.subtitle": "高機能な青空文庫リーダー",
             "app.household.title": "かんたん外貨家計簿",
@@ -84,6 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "hero.subtitle": "Making daily life a little more convenient and fun<br>through iOS app development.",
             "hero.button": "View Apps",
             "apps.title": "Apps",
+            "app.ai_greats.title": "Chat with AI Greats",
+            "app.ai_greats.subtitle": "Talk, romance, and study with 50 historical figures",
             "app.blue_library.title": "Blue Library",
             "app.blue_library.subtitle": "Advanced Aozora Bunko Reader",
             "app.household.title": "Easy Foreign Currency Budget",
@@ -110,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "hero.subtitle": "通过iOS应用开发，<br>让日常生活更便利、更有趣。",
             "hero.button": "查看应用",
             "apps.title": "应用列表",
+            "app.ai_greats.title": "与AI伟人聊天",
+            "app.ai_greats.subtitle": "与50位伟人进行对话、恋爱、学习交流",
             "app.blue_library.title": "青之书架",
             "app.blue_library.subtitle": "高性能青空文库阅读器",
             "app.household.title": "简易外币家计簿",
@@ -144,16 +150,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.innerHTML = translations[lang][key];
             }
         });
+
+        // セレクトボックスの選択状態も更新
+        if (langSelect) {
+            langSelect.value = lang;
+        }
     }
 
-    langSelect.addEventListener('change', (e) => {
-        updateLanguage(e.target.value);
-    });
+    if (langSelect) {
+        langSelect.addEventListener('change', (e) => {
+            updateLanguage(e.target.value);
+        });
+    }
 
-    // Initialize (optional: detect browser language)
-    // const browserLang = navigator.language.slice(0, 2);
-    // if (['ja', 'en', 'zh'].includes(browserLang)) {
-    //     langSelect.value = browserLang;
-    //     updateLanguage(browserLang);
-    // }
+    // --- 自動言語検出 (Auto Language Detection) ---
+    // ブラウザの言語を取得 (例: "ja-JP" -> "ja", "en-US" -> "en")
+    const browserLang = (navigator.language || navigator.userLanguage).substring(0, 2);
+
+    // サポートしている言語リスト
+    const supportedLangs = ['ja', 'en', 'zh'];
+
+    // サポートしている言語ならそれを、そうでなければ英語(en)をデフォルトにする
+    const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+
+    // 言語を適用
+    updateLanguage(defaultLang);
 });

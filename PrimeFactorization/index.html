@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>素因数分解タイムアタック | pochimutech</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" href="../favicon.ico">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="pochimutech ロゴ" class="site-logo">
+            </a>
+            <div class="header-right">
+                <div class="lang-switch">
+                    <select id="lang-select" aria-label="Language">
+                        <option value="ja">🇯🇵日本語</option>
+                        <option value="en">🇺🇸English</option>
+                        <option value="zh">🇨🇳中文</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero fade-in-up">
+            <div class="container hero-content">
+                <h1 data-i18n="pf.title">素因数分解タイムアタック</h1>
+                <p class="section-title" style="margin-bottom: 20px; font-size: 1.5rem;" data-i18n="pf.status">
+                    12月上旬リリース予定
+                </p>
+
+                <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="terms.html" class="btn-primary" data-i18n="pf.btn.terms">利用規約 & プライバシーポリシー</a>
+                    <a href="../index.html" class="btn-primary"
+                        style="background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color);"
+                        data-i18n="pf.btn.back">公式サイトへ戻る</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container fade-in-up">
+            <h2 class="section-title" data-i18n="pf.overview.title">アプリ概要</h2>
+            <div class="app-card" style="max-width: 800px; margin: 0 auto; text-align: left; align-items: flex-start;">
+                <h3 class="app-title" data-i18n="pf.purpose.title">利用目的</h3>
+                <p style="margin-bottom: 20px;" data-i18n="pf.purpose.text">本アプリは、素因数分解タイムアタックゲームを楽しむことを目的として提供されています。
+                </p>
+
+                <h3 class="app-title" data-i18n="pf.features.title">機能の概要</h3>
+                <ul style="list-style: disc; padding-left: 20px; color: var(--text-secondary);">
+                    <li data-i18n="pf.features.1">素因数分解のタイムアタックゲーム</li>
+                    <li data-i18n="pf.features.2">スコアの記録およびランキング機能（Firebase使用）</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-in-up">
+            <div class="container">
+                <h2 class="section-title" data-i18n="contact.title">お問い合わせ</h2>
+                <p data-i18n="contact.text">ご連絡は以下のメールアドレスまでお願いいたします。</p>
+                <p><a href="mailto:pochimutech.contact@gmail.com"
+                        class="contact-email">pochimutech.contact@gmail.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 pochimutech. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

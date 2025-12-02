@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約・プライバシーポリシー | 素因数分解タイムアタック</title>
+    <link rel="stylesheet" href="../style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../favicon.ico">
+    <style>
+        /* 規約ページ用の追加スタイル */
+        .legal-content {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            margin-top: 100px;
+            /* ヘッダー分 */
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        .legal-content h1 {
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1.8rem;
+        }
+
+        .legal-content h2 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 5px;
+        }
+
+        .legal-content h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .legal-content p,
+        .legal-content li {
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+        }
+
+        .legal-content ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .last-updated {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html">
+                <span style="font-weight:bold; font-size:1.2rem; color:var(--text-primary);">← Back</span>
+            </a>
+            <div class="header-right">
+                <div class="lang-switch">
+                    <select id="lang-select" aria-label="Language">
+                        <option value="ja">🇯🇵日本語</option>
+                        <option value="en">🇺🇸English</option>
+                        <option value="zh">🇨🇳中文</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="legal-content fade-in-up">
+
+            <h1 data-i18n="terms.title">📜 利用規約</h1>
+            <p class="last-updated"><span data-i18n="terms.updated">最終更新日</span>: 2025/12/02</p>
+
+            <p data-i18n="terms.intro">
+                この利用規約（以下、「本規約」といいます）は、素因数分解タイムアタック（以下、「本アプリ」といいます）の利用に関する条件を定めるものです。本アプリをご利用になる前に、必ず本規約をお読みください。</p>
+
+            <h2 data-i18n="terms.art1.title">第1条（適用）</h2>
+            <p data-i18n="terms.art1.text1">本規約は、本アプリを利用するすべての方（以下、「利用者」といいます）と、本アプリの開発者との間に適用されます。</p>
+            <p data-i18n="terms.art1.text2">利用者は、本アプリをインストールまたは利用した時点で、本規約に同意したものとみなします。</p>
+
+            <h2 data-i18n="terms.art2.title">第2条（利用目的）</h2>
+            <p data-i18n="terms.art2.text">本アプリは、素因数分解タイムアタックゲームを楽しむことを目的として提供されています。</p>
+
+            <h2 data-i18n="terms.art3.title">第3条（機能の概要）</h2>
+            <ul>
+                <li data-i18n="terms.art3.li1">素因数分解のタイムアタックゲーム</li>
+                <li data-i18n="terms.art3.li2">スコアの記録およびランキング機能（Firebase使用）</li>
+            </ul>
+
+            <h2 data-i18n="terms.art4.title">第4条（著作権）</h2>
+            <p data-i18n="terms.art4.text1">本アプリのプログラム、デザイン、機能等の著作権は、開発者に帰属します。</p>
+            <p data-i18n="terms.art4.text2">利用者は、本アプリを無断で複製・改変・再配布することはできません。</p>
+
+            <h2 data-i18n="terms.art5.title">第5条（禁止事項）</h2>
+            <p data-i18n="terms.art5.intro">以下の行為を禁止します：</p>
+            <ul>
+                <li data-i18n="terms.art5.li1">本アプリのリバースエンジニアリング、改変、複製、再配布</li>
+                <li data-i18n="terms.art5.li2">サーバー（Firebase等）への過剰・不正なリクエスト送信</li>
+                <li data-i18n="terms.art5.li3">本アプリの不正利用、ランキングの不正操作</li>
+                <li data-i18n="terms.art5.li4">法令または公序良俗に反する行為</li>
+            </ul>
+
+            <h2 data-i18n="terms.art6.title">第6条（免責事項）</h2>
+            <ul>
+                <li data-i18n="terms.art6.li1">本アプリは、正確な動作を保証するものではありません。</li>
+                <li data-i18n="terms.art6.li2">利用者が本アプリを使用したことにより発生した損害について、開発者は一切責任を負いません。</li>
+                <li data-i18n="terms.art6.li3">Firebase等の外部サービス障害により機能の一部が正常に動作しない場合があります。</li>
+            </ul>
+
+            <h2 data-i18n="terms.art7.title">第7条（変更・終了）</h2>
+            <p data-i18n="terms.art7.text1">開発者は、予告なく本アプリの仕様変更、提供停止、または本規約を変更する場合があります。</p>
+            <p data-i18n="terms.art7.text2">変更後の規約は、本アプリ内または関連ページで告知した時点から効力を有します。</p>
+
+            <h2 data-i18n="terms.art8.title">第8条（準拠法）</h2>
+            <p data-i18n="terms.art8.text">本規約の解釈および適用は日本法に準拠します。</p>
+
+            <hr style="border-color: var(--card-border); margin: 40px 0;">
+
+            <h1 data-i18n="privacy.title">🔒 プライバシーポリシー</h1>
+            <p class="last-updated"><span data-i18n="terms.updated">最終更新日</span>: 2025/11/01</p>
+
+            <p data-i18n="privacy.intro">本アプリでは、ユーザーのプライバシーを尊重し、以下の方針に基づいて運営しています。</p>
+
+            <h2 data-i18n="privacy.sec1.title">1. 収集する情報</h2>
+            <p data-i18n="privacy.sec1.text1">本アプリでは、氏名、メールアドレス、位置情報など、個人を特定できる情報を一切収集しません。</p>
+            <p data-i18n="privacy.sec1.text2">ただし、以下の情報を取得する場合があります：</p>
+            <ul>
+                <li data-i18n="privacy.sec1.li1">ゲームスコア等のランキングに必要なデータ（Firebaseに保存）</li>
+                <li data-i18n="privacy.sec1.li2">プレイ回数や端末識別が必要な最低限の匿名情報（Firebaseに送信される場合があります）</li>
+            </ul>
+
+            <h2 data-i18n="privacy.sec2.title">2. Firebaseの利用について</h2>
+            <p data-i18n="privacy.sec2.text1">本アプリでは、Google社のFirebaseを利用してランキング機能を提供しています。</p>
+            <ul>
+                <li data-i18n="privacy.sec2.li1">Firebaseを通じて収集される情報は匿名化されており、個人を特定するものではありません</li>
+                <li data-i18n="privacy.sec2.li2">Firebase利用には、Googleのプライバシーポリシーが適用されます</li>
+            </ul>
+            <p><a href="https://policies.google.com/privacy" target="_blank" style="color:var(--accent-color);">👉
+                    https://policies.google.com/privacy</a></p>
+
+            <h2 data-i18n="privacy.sec3.title">3. 広告・解析について</h2>
+            <p data-i18n="privacy.sec3.text">現時点では、広告配信およびアクセス解析機能は導入していません。今後導入する場合は、アプリ内またはプライバシーポリシーにて事前に告知します。</p>
+
+            <h2 data-i18n="privacy.sec4.title">4. 通信について</h2>
+            <p data-i18n="privacy.sec4.text">ランキングへの登録・取得のため、Firebaseとの通信が行われますが、それ以外の目的でのデータ送信は行いません。</p>
+
+            <h2 data-i18n="privacy.sec5.title">5. 第三者提供</h2>
+            <p data-i18n="privacy.sec5.text">法令に基づく場合を除き、ユーザー情報を第三者に提供することはありません。</p>
+
+            <h2 data-i18n="privacy.sec6.title">6. データの保存期間</h2>
+            <p data-i18n="privacy.sec6.text">ランキング関連データはFirebase上に保存されます。アプリ削除後も、データがFirebaseに残る場合があります。</p>
+
+            <h2 data-i18n="privacy.sec7.title">7. 改訂</h2>
+            <p data-i18n="privacy.sec7.text">必要に応じて本ポリシーを改訂することがあります。改訂後はアプリ内または関連ページにて告知します。</p>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 pochimutech. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
