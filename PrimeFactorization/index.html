@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>素因数分解タイムアタック | pochimutech</title>
+    <title>Prime Rush | pochimutech</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +13,71 @@
         rel="stylesheet">
 
     <link rel="icon" href="../favicon.ico">
+    <style>
+        /* Additional styles for dynamic content */
+        .app-store-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        #app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            display: none;
+            /* Hidden until loaded */
+        }
+
+        #app-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .store-description {
+            white-space: pre-wrap;
+            /* Preserves line breaks from App Store text */
+            text-align: left;
+            line-height: 1.8;
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-top: 10px; /* 上の間隔を少し調整 */
+            padding: 0;       /* 余計な余白をなくす */
+        }
+
+        .store-description::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .store-description::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: var(--accent-color);
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -37,15 +102,20 @@
     <main>
         <section class="hero fade-in-up">
             <div class="container hero-content">
-                <h1 data-i18n="pf.title">素因数分解タイムアタック</h1>
-                <p class="section-title" style="margin-bottom: 20px; font-size: 1.5rem;" data-i18n="pf.status">
-                    12月上旬リリース予定
-                </p>
+                <div class="app-store-info">
+                    <img id="app-icon" src="" alt="App Icon">
+                    <h1 id="app-title" data-i18n="pf.title">Prime Rush</h1>
+                    <div id="app-price" style="min-height: 24px;">
+                        <div class="loading-spinner"></div>
+                    </div>
+                    <p id="app-genres" style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 5px;"></p>
 
-                <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 0.9rem;">
-                    <span data-i18n="pf.dev">デベロッパー：POCHIMU TECH</span> | <span
-                        data-i18n="pf.cat">カテゴリ：教育/エンターテイメント</span>
-                </p>
+                    <a id="store-link" href="#" target="_blank" style="display: inline-block; margin-top: 10px;">
+                        <img id="store-badge"
+                            src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us"
+                            alt="Download on the App Store" style="width: 180px; height: auto;">
+                    </a>
+                </div>
 
                 <div style="margin-top: 30px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                     <a href="terms.html" class="btn-primary" data-i18n="pf.btn.terms">利用規約 & プライバシーポリシー</a>
@@ -57,32 +127,18 @@
         </section>
 
         <section class="container fade-in-up">
-            <h2 class="section-title" data-i18n="pf.overview.title">アプリ概要</h2>
-            <div class="app-card" style="max-width: 800px; margin: 0 auto; text-align: left; align-items: flex-start;">
-
-                <div
-                    style="margin-bottom: 30px; border-bottom: 1px solid var(--card-border); padding-bottom: 20px; width: 100%;">
-                    <p data-i18n="pf.intro" style="line-height: 1.8;">
-                        ご利用いただきありがとうございます！<br>
-                        このページでは、アプリ「素因数分解タイムアタック」に関するお問い合わせや、不具合報告を受け付けています。
-                    </p>
+            <div class="app-card" style="margin: 0 auto;">
+                <h3 class="app-title" style="text-align: left; margin-bottom: 10px;">Introduction</h3>
+                <div id="app-description" class="store-description">
+                    Loading description...
                 </div>
+            </div>
+        </section>
 
-                <h3 class="app-title" data-i18n="pf.purpose.title" style="font-size: 1.2rem; margin-top: 10px;">利用目的
-                </h3>
-                <p style="margin-bottom: 20px; color: var(--text-secondary);" data-i18n="pf.purpose.text">
-                    本アプリは、素因数分解タイムアタックゲームを楽しむことを目的として提供されています。
-                </p>
-
-                <h3 class="app-title" data-i18n="pf.features.title" style="font-size: 1.2rem;">機能の概要</h3>
-                <ul style="list-style: disc; padding-left: 20px; color: var(--text-secondary); margin-bottom: 30px;">
-                    <li data-i18n="pf.features.1">素因数分解のタイムアタックゲーム</li>
-                    <li data-i18n="pf.features.2">スコアの記録およびランキング機能（Firebase使用）</li>
-                </ul>
-
-                <h3 class="app-title" data-i18n="pf.disclaimer.title" style="font-size: 1.2rem;">🛡️ 免責事項</h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;"
-                    data-i18n="pf.disclaimer.text">
+        <section class="container fade-in-up">
+            <div class="app-card" style="margin: 0 auto; text-align: left; align-items: flex-start;">
+                <h3 class="app-title" data-i18n="pf.disclaimer.title" style="font-size: 1.2rem; margin-top: 0;">🛡️ 免責事項</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;" data-i18n="pf.disclaimer.text">
                     本アプリの情報は正確を期していますが、内容の保証は致しかねます。<br>
                     不具合などが発生した場合、できる限り迅速に対応いたしますが、保証はできません。
                 </p>
@@ -97,8 +153,8 @@
                     ご意見・ご要望・不具合報告は、以下のフォームより受け付けております。
                 </p>
 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe06spcDK3hDMkQhWRqNLQtU7v8v-95niLPl7oJebItRRuaNQ/viewform?usp=dialog" target="_blank" class="btn-primary" style="margin-bottom: 40px;"
-                    data-i18n="contact.btn_form">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe06spcDK3hDMkQhWRqNLQtU7v8v-95niLPl7oJebItRRuaNQ/viewform?usp=dialog"
+                    target="_blank" class="btn-primary" style="margin-bottom: 40px;" data-i18n="contact.btn_form">
                     お問い合わせフォームへ
                 </a>
 

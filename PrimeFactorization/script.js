@@ -1,3 +1,50 @@
+// --- CONFIGURATION ---
+const APP_ID = '6755986782'; // Change this ID for other apps
+// ---------------------
+
+// Global callback function for iTunes JSONP
+window.handleAppStoreData = function (data) {
+    if (data.resultCount > 0) {
+        const result = data.results[0];
+
+        // 1. Update App Icon
+        const iconElement = document.getElementById('app-icon');
+        if (iconElement) {
+            iconElement.src = result.artworkUrl512 || result.artworkUrl100;
+            iconElement.style.display = 'block';
+        }
+
+        const genreElement = document.getElementById('app-genres');
+        if (genreElement && result.genres) {
+            // 配列を " / " で区切って表示（例: 教育 / エンターテインメント）
+            genreElement.innerText = result.genres.join(' / ');
+        }
+
+        // 2. Update Title (Optional: override static translation if needed, but static is usually safer for formatting)
+        const titleElement = document.getElementById('app-title');
+        if (titleElement) titleElement.innerText = result.trackName;
+
+        // 3. Update Price
+        const priceElement = document.getElementById('app-price');
+        if (priceElement) {
+            priceElement.innerHTML = result.formattedPrice || 'Free';
+        }
+
+        // 4. Update Description
+        const descElement = document.getElementById('app-description');
+        if (descElement && result.description) {
+            // iTunes API returns text with \n, we preserve it with CSS white-space: pre-wrap
+            descElement.innerText = result.description;
+        }
+
+        // 5. Update Link
+        const linkElement = document.getElementById('store-link');
+        if (linkElement) {
+            linkElement.href = result.trackViewUrl;
+        }
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Scroll Animation ---
@@ -26,6 +73,41 @@ document.addEventListener('DOMContentLoaded', () => {
             header.classList.remove('scrolled');
         }
     });
+
+    // --- Dynamic App Store Data Fetching ---
+    function fetchAppStoreData(lang) {
+        // Map language code to iTunes Store country code
+        const countryMap = {
+            'ja': 'jp',
+            'en': 'us',
+            'zh': 'cn'
+        };
+        const country = countryMap[lang] || 'us';
+
+        // Remove existing script if any (to allow language switching)
+        const existingScript = document.getElementById('itunes-lookup');
+        if (existingScript) {
+            existingScript.remove();
+        }
+
+        // Create new script tag for JSONP
+        const script = document.createElement('script');
+        script.id = 'itunes-lookup';
+        script.src = `https://itunes.apple.com/lookup?id=${APP_ID}&country=${country}&callback=handleAppStoreData`;
+        document.body.appendChild(script);
+
+        // Update Store Badge Language
+        const badge = document.getElementById('store-badge');
+        if (badge) {
+            const localeMap = {
+                'ja': 'ja-jp',
+                'en': 'en-us',
+                'zh': 'zh-cn'
+            };
+            const locale = localeMap[lang] || 'en-us';
+            badge.src = `https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/${locale}`;
+        }
+    }
 
     // --- Translations ---
     const translations = {
@@ -277,10 +359,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // セレクトボックスの選択状態も更新
+        // Update selector
         if (langSelect) {
             langSelect.value = lang;
         }
+
+        // Fetch App Store data for this language
+        fetchAppStoreData(lang);
     }
 
     if (langSelect) {
@@ -289,16 +374,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 自動言語検出 (Auto Language Detection) ---
-    // ブラウザの言語を取得 (例: "ja-JP" -> "ja", "en-US" -> "en")
+    // --- Auto Language Detection ---
     const browserLang = (navigator.language || navigator.userLanguage).substring(0, 2);
-
-    // サポートしている言語リスト
     const supportedLangs = ['ja', 'en', 'zh'];
-
-    // サポートしている言語ならそれを、そうでなければ英語(en)をデフォルトにする
     const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
 
-    // 言語を適用
+    // Apply language (this triggers the initial API fetch)
     updateLanguage(defaultLang);
 });
