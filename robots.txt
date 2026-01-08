@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://pochimutech.github.io/sitemap.xml
+Sitemap: https://pochimutech.com/sitemap.xml
